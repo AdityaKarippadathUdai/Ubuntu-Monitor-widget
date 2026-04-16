@@ -251,6 +251,3 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 - GitHub: [@yourusername](https://github.com/yourusername)
 - LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
 
----
-
-<p align="center">Made with ❤️ for the Linux desktop community</p>
