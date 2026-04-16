@@ -3,6 +3,20 @@ const path = require("path");
 
 let win;
 let tray;
+let isQuiting = false;
+
+const gotTheLock = app.requestSingleInstanceLock();
+
+if (!gotTheLock) {
+  app.quit();
+} else {
+  app.on("second-instance", () => {
+    if (win) {
+      if (!win.isVisible()) win.show();
+      win.focus();
+    }
+  });
+}
 
 function createWindow() {
   const { width } = screen.getPrimaryDisplay().workAreaSize;
@@ -29,8 +43,10 @@ function createWindow() {
 
   // Prevent closing (hide instead)
   win.on("close", (e) => {
-    e.preventDefault();
-    win.hide();
+    if (!isQuiting) {
+      e.preventDefault();
+      win.hide();
+    }
   });
 }
 
@@ -48,7 +64,7 @@ function createTray() {
     {
       label: "Quit",
       click: () => {
-        app.isQuiting = true;
+        isQuiting = true;
         app.quit();
       }
     }

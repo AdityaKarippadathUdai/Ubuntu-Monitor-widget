@@ -1,19 +1,39 @@
 {
   "name": "desktop-widget",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ubuntu system monitor widget using Electron",
   "main": "main.js",
-  "scripts": {
-    "start": "electron ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
-    "electron": "^41.2.1"
+  "author": "Aditya",
+  "license": "MIT",
+
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
   },
+
+  "dependencies": {
+
+  },
+
   "devDependencies": {
-    "electron-reload": "^2.0.0-alpha.1"
+    "electron": "^41.2.1",
+    "electron-reload": "^2.0.0-alpha.1",
+    "electron-builder": "^24.0.0"
+  },
+
+  "build": {
+    "appId": "com.aditya.widget",
+    "productName": "SystemWidget",
+    "files": [
+      "**/*"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Utility"
+    }
   }
 }
