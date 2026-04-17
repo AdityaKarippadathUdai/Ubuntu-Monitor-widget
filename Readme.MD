@@ -10,7 +10,7 @@ A lightweight, always-on-top desktop widget built with **Electron** that display
 |---|---|
 | ![Widget Screenshot](screenshots/widget.png) | ![Tray Screenshot](screenshots/tray.png) |
 
-> _Place your screenshots in a `/screenshots` folder and update the paths above._
+
 
 ---
 
@@ -65,7 +65,7 @@ The widget floats in the top-right corner of your desktop as a semi-transparent 
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/desktop-widget.git
+git clone https://github.com/AdityaKarippadathUdai/Ubuntu-Monitor-widget
 cd desktop-widget
 ```
 
