@@ -238,6 +238,16 @@ Contributions are welcome! To get started:
 Please keep code clean and avoid introducing unnecessary dependencies or architectural complexity.
 
 ---
+## 📦 Download
+
+Download the latest AppImage from the [Releases](https://github.com/AdityaKarippadathUdai/Ubuntu-Monitor-widget/releases/tag/v1.0.0) page.
+
+```bash
+chmod +x SystemWidget-*.AppImage
+./SystemWidget-*.AppImage
+```
+
+
 
 ## 📄 License
 
@@ -248,6 +258,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ## 👤 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
+- GitHub: [@ AdityaKarippadathUdai](https://github.com/AdityaKarippadathUdai)
+- LinkedIn: [https://www.linkedin.com/in/aditya-udai-a580a232a/](https://www.linkedin.com/in/aditya-udai-a580a232a/)
 

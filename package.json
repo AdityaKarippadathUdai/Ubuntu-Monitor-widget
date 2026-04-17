@@ -12,9 +12,7 @@
     "build": "electron-builder"
   },
 
-  "dependencies": {
-
-  },
+  "dependencies": {},
 
   "devDependencies": {
     "electron": "^41.2.1",
@@ -25,15 +23,26 @@
   "build": {
     "appId": "com.aditya.widget",
     "productName": "SystemWidget",
+
     "files": [
       "**/*"
     ],
+
+    "extraResources": [
+      {
+        "from": "build/",
+        "to": "build/"
+      }
+    ],
+
     "directories": {
       "buildResources": "build"
     },
+
     "linux": {
       "target": "AppImage",
-      "category": "Utility"
+      "category": "Utility",
+      "icon": "build/icon.png"
     }
   }
 }

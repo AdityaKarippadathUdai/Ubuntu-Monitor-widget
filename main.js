@@ -5,6 +5,7 @@ let win;
 let tray;
 let isQuiting = false;
 
+// ✅ SINGLE INSTANCE LOCK
 const gotTheLock = app.requestSingleInstanceLock();
 
 if (!gotTheLock) {
@@ -18,6 +19,11 @@ if (!gotTheLock) {
   });
 }
 
+// ✅ ICON PATH (works in dev + AppImage)
+const iconPath = app.isPackaged
+  ? path.join(process.resourcesPath, "build/icon.png")
+  : path.join(__dirname, "build/icon.png");
+
 function createWindow() {
   const { width } = screen.getPrimaryDisplay().workAreaSize;
 
@@ -29,7 +35,7 @@ function createWindow() {
     resizable: false,
     skipTaskbar: true,
     hasShadow: false,
-    icon: path.join(__dirname, "build/icon.png"), // ✅ FIXED
+    icon: iconPath, // ✅ FIXED
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
@@ -41,7 +47,7 @@ function createWindow() {
   // Top-right position
   win.setPosition(width - 270, 20);
 
-  // Prevent closing (hide instead)
+  // Prevent close → hide instead
   win.on("close", (e) => {
     if (!isQuiting) {
       e.preventDefault();
@@ -51,7 +57,7 @@ function createWindow() {
 }
 
 function createTray() {
-  tray = new Tray(path.join(__dirname, "build/icon.png")); // ✅ FIXED
+  tray = new Tray(iconPath); // ✅ FIXED
 
   const contextMenu = Menu.buildFromTemplate([
     {
@@ -77,6 +83,12 @@ function createTray() {
     win.isVisible() ? win.hide() : win.show();
   });
 }
+
+// Clean tray on exit
+app.on("before-quit", () => {
+  isQuiting = true;
+  if (tray) tray.destroy();
+});
 
 app.whenReady().then(() => {
   createWindow();
